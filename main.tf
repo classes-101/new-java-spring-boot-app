@@ -31,7 +31,7 @@ resource "aws_iam_instance_profile" "beanstalk_instance_profile" {
   role = aws_iam_role.beanstalk_ec2_role.name
 }
 
-data "aws_s3_bucket" "b_name" {
+resource "aws_s3_bucket" "b_name" {
   bucket = var.s3_bucket
 }
 
