@@ -31,9 +31,8 @@ resource "aws_iam_instance_profile" "beanstalk_instance_profile" {
   role = aws_iam_role.beanstalk_ec2_role.name
 }
 
-data "aws_s3_bucket" "example" {
+data "aws_s3_bucket" "b_name" {
   bucket = var.s3_bucket
-  acl    = "private"
 }
 
 resource "aws_elastic_beanstalk_application" "example" {
@@ -44,10 +43,10 @@ resource "aws_elastic_beanstalk_application" "example" {
 resource "aws_elastic_beanstalk_application_version" "example" {
   name        = var.app_version
   application = aws_elastic_beanstalk_application.example.name
-  bucket      = aws_s3_bucket.example.bucket
+  bucket      = aws_s3_bucket.b_name.bucket
   key         = var.s3_key
   description = "Version ${var.app_version} of my application"
-  depends_on  = [aws_s3_bucket.example]
+  depends_on  = [aws_s3_bucket.b_name]
 }
 
 resource "aws_elastic_beanstalk_environment" "example" {
