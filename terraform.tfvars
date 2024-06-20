@@ -1,5 +1,5 @@
 aws_region    = "ap-south-1"
-s3_bucket     = "java-app-r"
+s3_bucket     = "java-app-new"
 app_name      = "rose-app"
 env_name      = "rose-env"
 solution_stack = "64bit Amazon Linux 2023 v4.2.5 running Corretto 17"
