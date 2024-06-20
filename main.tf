@@ -31,7 +31,7 @@ resource "aws_iam_instance_profile" "beanstalk_instance_profile" {
   role = aws_iam_role.beanstalk_ec2_role.name
 }
 
-resource "aws_s3_bucket" "example" {
+data "aws_s3_bucket" "example" {
   bucket = var.s3_bucket
   acl    = "private"
 }
