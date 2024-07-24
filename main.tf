@@ -43,10 +43,10 @@ resource "aws_elastic_beanstalk_application" "example" {
 resource "aws_elastic_beanstalk_application_version" "example" {
   name        = var.app_version
   application = aws_elastic_beanstalk_application.example.name
-  bucket      = data.aws_s3_bucket.b_name.bucket
+  bucket      = data.aws_s3_bucket.java-app-release.bucket
   key         = var.s3_key
   description = "Version ${var.app_version} of my application"
-  depends_on  = [data.aws_s3_bucket.b_name]
+  depends_on  = [data.aws_s3_bucket.java-app-release]
 }
 
 resource "aws_elastic_beanstalk_environment" "example" {
